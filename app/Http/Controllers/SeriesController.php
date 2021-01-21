@@ -26,12 +26,14 @@ class SeriesController
         ]
         );
     }
+
     public function create()
     {
         $titulo = 'Criar séries';
 
         return view('series.create', compact('titulo'));
     }
+
     public function destroy(Request $req, RemovedorSerie $removedor)
     {
         
@@ -39,13 +41,17 @@ class SeriesController
         $req->session()->flash('mnes',"Série removida $seireRemovida com sucesso!!");
         return redirect()->route('listar_series'); 
     }
+
+    
     public function store(
         SeriesFormRequest $req,
         CriadorSerie $criador)
     {     
         
        $serie = $criador->criarSerie($req);
+
        $req->session()->flash('mnes',"Série {$serie->nome} ({$serie->id}) criada com sucesso!!");
+
        return redirect()->route('listar_series'); 
 
         // $nome = $req->nome;

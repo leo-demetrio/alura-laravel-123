@@ -30,7 +30,7 @@ class SeriesFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'O campo :atribute deve ser preenchido',
+            'required' => 'O campo :attribute deve ser preenchido',
             'nome.min' => 'O campo nome de ter no minimo 3 cracteres'
         ];
 
