@@ -20,7 +20,7 @@ Listar Séries
 
             <span class="d-flex">
             <a href="/series/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm mr-1">
-                <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
             </a>
             <form action="/series/{{ $serie->id }}" method="post" onsubmit="return confirm('Tem certeza')">
             @csrf

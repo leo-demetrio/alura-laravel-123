@@ -11,13 +11,11 @@ class RemovedorSerie
         $nomeSerie = "";
         DB::transaction(function () use ($id, &$nomeSerie) {
 
-            //echo $id;exit;
+           
             $serie = Series::find($id);
+            
             $nomeSerie = $serie->nome;
-           // echo $serie->temporadas;
-            // echo "<pre>";
-            //var_dump($serie);exit;
-            //var_dump(get_class($serie));exit;
+           
             $this->removeTemporadas($serie);
             
             $serie->delete();

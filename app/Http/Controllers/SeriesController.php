@@ -19,12 +19,7 @@ class SeriesController
         //$series = Series::all();      
         //$titulo = 'Listar séries';
 
-        return view('series.index', [
-            //'titulo' => $titulo,
-            'series' => $series ,
-            'mnes' => $mnes 
-        ]
-        );
+        return view('series.index', compact('series','mnes'));
     }
 
     public function create()
@@ -43,9 +38,7 @@ class SeriesController
     }
 
     
-    public function store(
-        SeriesFormRequest $req,
-        CriadorSerie $criador)
+    public function store(SeriesFormRequest $req,CriadorSerie $criador)
     {     
         
        $serie = $criador->criarSerie($req);
