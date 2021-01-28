@@ -30,9 +30,12 @@ Listar Séries
 
            
             <span class="d-flex">
-                <button class="btn btn-info btn-sm mr-1" onclick="toggleInput(<?php echo $serie->id ?>)">
+                <a href="/series/{{ $serie->id }}/editar" class="btn btn-info btn-sm mr-1">
                     <i class="fas fa-edit"></i>
-                </button>           
+                </a> 
+                <!-- <button class="btn btn-info btn-sm mr-1" onclick="toggleInput(<?php echo $serie->id ?>)">
+                    <i class="fas fa-edit"></i>
+                </button>   -->         
 
                 <a href="/series/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm mr-1">
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>

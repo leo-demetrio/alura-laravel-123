@@ -61,11 +61,18 @@ class SeriesController
         // var_dump($serie->save());
        
     }
-    public function editar(Request $req)
+    public function editar(int $id)
     {
+ 
+     $serie = Series::find($id);
+     return view('series.edit',compact('serie'));
+    }
+    
+    public function editarPost(Request $req)
+    {       
      
         $serieNome = $req->nome;
-        $serie = Serie::find($req->id);
+        $serie = Series::find($req->id);
         $serie->nome = $serieNome;
         $serie->save();
         return view('series.create'); 
