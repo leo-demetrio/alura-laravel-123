@@ -22,13 +22,16 @@ class CriadorSerie
 
     private function criarTemporadas($serie,$req)
     {
+    
       for($i = 1; $i <= $req->qtd_temporadas; $i++) {
 
            $temporada = $serie->temporadas()->create(['numero' => $i]);
 
-           $this->criarEpisodios($temporada,$req->ep_por_temporada);
+           $this->criarEpisodios($temporada,$req->ep_por_temporadas);
 
          }
+         echo "<pre>";
+        
          return $temporada;
     }
     private function criarEpisodios($temporada,$ep_por_temporada)

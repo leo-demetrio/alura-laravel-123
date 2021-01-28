@@ -17,7 +17,7 @@ class CreateTemporadasTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->integer('numero');
-            $table->integer('series_id');
+            $table->integer('series_id')->unsigned();
 
             $table->foreign('series_id')->references('id')->on('series');
         });
