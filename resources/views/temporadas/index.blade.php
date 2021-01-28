@@ -2,6 +2,8 @@
 
 @section('cabecalho')
 Temporadas de {{ $serie->nome }}
+<a href="{{ route('form_criar_serie') }}" class="btn btn-dark mb-2">Adicionar</a>
+<a href="{{ route('listar_series') }}" class="btn btn-dark mb-2">Lista Séries</a>
 @endsection
 
 @section('conteudo')

@@ -1,11 +1,11 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
-//Route::get('/', 'SeriesController@index')->name('listar_series');
+Route::get('/', 'SeriesController@index')->name('listar_series');
 Route::get('/series', 'SeriesController@index')->name('listar_series');
 Route::get('/series/create', 'SeriesController@create')->name('form_criar_serie');
 Route::post('/series/create', 'SeriesController@store');
