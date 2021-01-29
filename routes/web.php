@@ -14,3 +14,5 @@ Route::get('/series/{id}/editar', 'SeriesController@editar')->name('editar_serie
 Route::post('/series/{id}/editar', 'SeriesController@editarPost')->name('editar_serie_post');
 
 Route::get('/series/{id}/temporadas', 'TemporadasController@index');
+Route::get('/temporadas/{temporada}/episodios', 'EpisodiosController@index');
+Route::post('/temporada/{temporada}/episodios/assistidos', 'EpisodiosController@assistidos');

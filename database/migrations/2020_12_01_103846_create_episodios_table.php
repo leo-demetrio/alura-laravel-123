@@ -18,6 +18,7 @@ class CreateEpisodiosTable extends Migration
             $table->timestamps();
             $table->integer('numero');
             $table->bigInteger('temporada_id')->unsigned();
+            $table->boolean('assistidos')->default();
 
             $table->foreign('temporada_id')->references('id')->on('temporadas');
         });
