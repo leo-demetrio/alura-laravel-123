@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Services\CriadorSerie;
 use App\Services\RemovedorSerie;
 use App\Http\Requests\SeriesFormRequest;
+use \App\Mail\NovaSerie;
+use Illuminate\Support\Facades\Mail;
 
 
 class SeriesController 
@@ -42,6 +44,10 @@ class SeriesController
     {     
         
        $serie = $criador->criarSerie($req);
+       $email = new NovaSerie($req->nome,$req->qtd_temporadas,$req->qtd_episodios);
+       $email->subject = 'Nova Série Criada';
+       $user = $req->user();dd($user);
+       Mail::to($user)->send($email);
 
        $req->session()->flash('mnes',"Série {$serie->nome} ({$serie->id}) criada com sucesso!!");
 
