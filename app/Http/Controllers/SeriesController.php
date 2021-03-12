@@ -40,7 +40,7 @@ class SeriesController
 
     
     public function store(SeriesFormRequest $req,CriadorSerie $criador)
-    {     
+    {    // dd($req->all());
         
        $serie = $criador->criarSerie($req);
        

@@ -7,7 +7,7 @@ class Series extends Model
 {
     protected $table = 'series';
     public $timestamps = false;
-    protected $fillable = ['nome'];
+    protected $fillable = ['nome','capa'];
 
     public function temporadas()
     {

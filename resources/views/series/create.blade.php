@@ -35,6 +35,12 @@ Criar Séries
                 <label for="ep_por_temporadas">Nº Eps.</label>
                 <input type="number" name="ep_por_temporadas" class="form-control" id="ep_por_temporadas" aria-describedby="emailHelp">
                 <small id="emailHelp" class="form-text text-muted">Nº eps.</small>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <label for="capa">Capa</label>
+                <input type="text" name="capa" class="form-control" id="capa">
             </div>
         </div>
         

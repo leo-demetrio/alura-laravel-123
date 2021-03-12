@@ -12,7 +12,7 @@ class CriadorSerie
     {
       
        DB::beginTransaction();
-       $serie = Series::create(['nome' => $req->nome]);
+       $serie = Series::create(['nome' => $req->nome,'capa' => $req->capa]);
        $temporadas = $this->criarTemporadas($serie,$req);
        DB::commit();
 
