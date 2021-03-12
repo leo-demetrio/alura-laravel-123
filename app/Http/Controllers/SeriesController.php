@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Series;
 use App\Temporada;
+use App\Events\NovaSerie;
 use Illuminate\Http\Request;
 use App\Services\CriadorSerie;
 use App\Services\RemovedorSerie;
 use App\Http\Requests\SeriesFormRequest;
-use \App\Mail\NovaSerie;
-use Illuminate\Support\Facades\Mail;
 
 
 class SeriesController 
@@ -44,11 +43,11 @@ class SeriesController
     {     
         
        $serie = $criador->criarSerie($req);
-       $email = new NovaSerie($req->nome,$req->qtd_temporadas,$req->qtd_episodios);
-       $email->subject = 'Nova Série Criada';
-       $user = $req->user();dd($user);
-       Mail::to($user)->send($email);
-
+       
+       //dd($users);
+       $eventNovaSerie = new NovaSerie($req->nome,$req->ep_por_temporadas,$req->qtd_temporadas);
+       event($eventNovaSerie);
+       
        $req->session()->flash('mnes',"Série {$serie->nome} ({$serie->id}) criada com sucesso!!");
 
        return redirect()->route('listar_series'); 
@@ -81,6 +80,6 @@ class SeriesController
         $serie = Series::find($req->id);
         $serie->nome = $serieNome;
         $serie->save();
-        return view('series.create'); 
+        return view('series.index'); 
     }
 }

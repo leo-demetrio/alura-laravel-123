@@ -5,6 +5,6 @@
     
 ### Quanatidade episódios {{ $episodios }}
   
-###Quanatidade episódios {{ $temporadas}}
+###Quanatidade temporadas {{ $temporadas}}
 
 @endcomponent
